@@ -1,26 +1,24 @@
 <template>
 <div class="container">
   <h3 class="text-center">Vue新闻列表</h3>
-		<section class="callout secondary">
-			<h5 class="text-center">请选择新闻分类</h5>
-			<form>
-				<div class="row">
-					<div class="large-6 columns">
-						<select v-model="section">
-							<option v-for="section in sections" :value="section">{{ section }}</option>
-						</select>
-					</div>
-					<div class="medium-6 columns">
-						<a @click="getPosts(section)" class="button expanded">确认选择</a>
-					</div>
+	<section class="callout secondary">
+		<h5 class="text-center">请选择新闻分类</h5>
+		<form>
+			<div class="row">
+				<div class="large-6 columns">
+					<select v-model="section">
+						<option v-for="section in sections" :value="section">{{ section }}</option>
+					</select>
 				</div>
-			</form>
-		</section>
-
-		<h5 class="text-center uppercase" v-if="!loading">{{ title }}</b></h5>
-		<div v-if="loading" class="loader"><img src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="loader"></div>
-
-		<news-list v-if="!loading" :results="results"></news-list>
+				<div class="medium-6 columns">
+					<a @click="getPosts(section)" class="button expanded">确认选择</a>
+				</div>
+			</div>
+		</form>
+	</section>
+	<h5 class="text-center uppercase" v-if="!loading">{{ title }}</b></h5>
+	<div v-if="loading" class="loader"><img src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.16.1/images/loader-large.gif" alt="loader"></div>
+	<news-list v-if="!loading" :results="results"></news-list>
 </div>
 </template>
 
